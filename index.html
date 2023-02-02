@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/94cdca04a5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>Number Guessing Game</title>
+</head>
+
+<body>
+    <main>
+        <div id="startMenu">
+            <h1>Devine le nombre</h1>
+            <div id="difficulty">
+                <button id="easy" title="1-20" onclick="startGame(this.id)">Facile</button>
+                <button id="medium" title="1-50" onclick="startGame(this.id)">Moyen</button>
+                <button id="hard" title="1-100" onclick="startGame(this.id)">Difficile</button>
+                <button id="personnalise" title="Choisir la difficulté" onclick="showCustom()">Personnalisé</button>
+            </div>
+            <div id="customInput" style="display: none;">
+                <h2>Choisissez la difficulté</h2>
+                <div>
+                    <label for="customNbr">Nombre maximum : </label>
+                    <input type="number" id="customNbr" min="1">
+                </div>
+                <div>
+                    <label for="customTry">Nombre d'essais : </label>
+                    <input type="number" id="customTry" min="1">
+                </div>
+                <div>
+                    <button id="custom" onclick="startGame(this.id)">Valider</button>
+                    <button onclick="showCustom()">Annuler</button>
+                </div>
+            </div>
+            <div id="fade" style="display: none;" onclick="fadeClick();"></div>
+        </div>
+        <div id="gameMenu" style="display: none;">
+            <div id="game">
+                <h2 id="title"></h2>
+                <div id="guess">
+                    <h2 id="keyEnter"></h2>
+                </div>
+                <div id="result">
+                    <h3><span id="resultText"></span></h3>
+                    <h3 id="tries">Essais restant : <span id="nbrTry"></span></h3>
+                    <i class="far fa-question-circle" id="help" title="Afficher les essais précédents"
+                        onclick="showTries()"></i>
+                    <h3 id="prev">Essais précédents : <span id="previousTry"></span></h3>
+                </div>
+
+                <div id="btns">
+                    <button id="restart" onclick="restart()">Recommencer</button>
+                    <button id="quit" onclick="quit()">Difficultés</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script type="text/javascript" src="JS/index.js"></script>
+
+</html>
