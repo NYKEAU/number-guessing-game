@@ -3,6 +3,7 @@ const game = document.getElementById('gameMenu');
 const resultText = document.getElementById('resultText');
 const nbrTry = document.getElementById('nbrTry');
 const keyEnter = document.getElementById('keyEnter');
+const inputNbr = document.getElementById('inputNbr');
 const tries = document.getElementById('tries');
 const title = document.getElementById('title');
 const restartBtn = document.getElementById('restart');
@@ -58,6 +59,11 @@ function startGame(id) {
         title.innerHTML = 'Personnalisé';
     }
 }
+
+function showInput() {
+    keyEnter.style.display = 'none';
+    inputNbr.style.display = 'flex';
+};
 
 document.addEventListener('keypress', function (e) {
     const key = e.key;
