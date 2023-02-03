@@ -53,6 +53,17 @@ h1 {
     padding: 0;
 }
 
+#difficulty {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#difficulty>button {
+    margin: 15px 15px;
+}
+
 #customInput {
     z-index: 10;
     position: absolute;
@@ -179,11 +190,8 @@ h1 {
     #inputNbr {
         width: 75%;
     }
-}
 
-#difficulty {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    #difficulty {
+        flex-direction: column;
+    }
 }
