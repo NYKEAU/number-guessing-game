@@ -68,7 +68,6 @@ function showInput() {
 document.addEventListener('keypress', function (e) {
     const key = e.key;
     restartBtn.blur();
-    console.log(number);
 
     if (!isNbrFound) {
         if (key !== 'Enter' && isFinite(key)) {
@@ -144,4 +143,11 @@ function quit() {
     startMenu.style.display = 'flex';
     game.style.display = 'none';
     resultText.innerHTML = ' ';
+}
+
+function checkInput() {
+    const input = document.getElementById('input').value;
+    input.focus();
+
+    return input;
 }
