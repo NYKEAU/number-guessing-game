@@ -11,6 +11,7 @@ const prev = document.getElementById('prev');
 const prevTry = document.getElementById('previousTry');
 const help = document.getElementById('help');
 const fade = document.getElementById('fade');
+const inputNum = document.getElementById('inputNum');
 
 let completeNumber = '';
 let number = 0;
@@ -28,6 +29,9 @@ function startGame(id) {
     prev.style.display = 'none';
     prevTry.innerHTML = '';
     help.style.display = 'block';
+    keyEnter.style.display = 'flex';
+    inputNbr.style.display = 'none';
+    inputNbr.value = '';
 
     number = 0;
     nbrTry.innerHTML = 0;
@@ -63,6 +67,8 @@ function startGame(id) {
 function showInput() {
     keyEnter.style.display = 'none';
     inputNbr.style.display = 'flex';
+
+    inputNbr.focus();
 };
 
 document.addEventListener('keypress', function (e) {
@@ -93,7 +99,8 @@ document.addEventListener('keypress', function (e) {
             resultText.innerHTML = "Veuillez entrer un nombre.";
         }
     }
-});
+}
+);
 
 function fadeClick() {
     showCustom();
@@ -113,7 +120,14 @@ function showCustom() {
 
 function completingNumber(key) {
     completeNumber += key.toString();
-    keyEnter.innerHTML = completeNumber;
+
+    let isFocused = (document.activeElement === inputNbr);
+
+    if (!isFocused) {
+        keyEnter.innerHTML = completeNumber;
+        keyEnter.style.display = 'flex';
+        inputNbr.style.display = 'none';
+    }
 }
 
 function showTries() {
@@ -126,8 +140,10 @@ function isFound(nbr) {
     nbr = parseInt(nbr);
     if (nbr > number) {
         resultText.innerHTML = "Le nombre est plus petit.";
+        inputNbr.value = '';
     } else if (nbr < number) {
         resultText.innerHTML = "Le nombre est plus grand.";
+        inputNbr.value = '';
     } else {
         resultText.innerHTML = "Bravo ! Vous avez trouvé le nombre.";
         tries.style.color = 'green';

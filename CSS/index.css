@@ -101,36 +101,41 @@ h1 {
     height: 100%;
 }
 
+#title {
+    font-size: xx-large;
+}
+
+#guess {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 #keyEnter {
     user-select: text;
 }
 
+#keyEnter,
 #inputNbr {
-    font-size: 1.5em;
-    margin: .75em 0;
-}
-
-#inputNbr {
-
     font-family: inherit;
-    width: 100%;
+    margin: .75em 0;
     border: 0;
-    border-bottom: 2px solid #9b9b9b;
     outline: 0;
-    font-size: 1.3rem;
-    color: #fff;
+    font-size: 2em;
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
+    text-align: center;
 }
 
-#inputNbr::placeholder {
-    color: transparent;
+#inputNbr {
+    width: 50%;
+    border-bottom: 2px solid #9b9b9b;
 }
 
-.form__field:focus {
-    padding-bottom: 6px;
-    font-weight: 700;
+#inputNbr:focus {
     border-width: 3px;
     border-image: black;
     border-image-slice: 1;
@@ -166,9 +171,13 @@ h1 {
     font-size: 60px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
     #guess {
         font-size: 30px;
+    }
+
+    #inputNbr {
+        width: 75%;
     }
 }
 
